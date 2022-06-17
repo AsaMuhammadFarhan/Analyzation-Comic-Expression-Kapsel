@@ -51,11 +51,13 @@ while run:
         if index != 0:
           index = index-1
         print('Trigger Back')
+        print('sekarang halaman', index + 1)
 
     if nextButton.draw(screen):
         if index != 4:
           index = index+1
         print('Trigger Next')
+        print('sekarang halaman', index + 1)
 
     screen.blit(
       comicArray[index],
