@@ -1,15 +1,15 @@
 # IMPORT
 
-# Import modul Interface
+## Import modul Interface
 import pygame
 import py_button
 from pyPath import path
 
-# Import modul Interval
+## Import modul Interval
 from time import time, sleep
 import threading
 
-# Import modul Model
+## Import modul Model
 import cv2
 import numpy as np
 from keras.models import model_from_json
@@ -18,13 +18,13 @@ from keras.models import model_from_json
 
 # INTERFACE
 
-# Variabel buat display window
+## Variabel buat display window
 screenWidth = 800
 screenHeight = 500
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 pygame.display.set_caption('Interface from python')
 
-# Comic Image
+## Comic Image
 comic1 = pygame.image.load(path + 'Comic1.jpg')
 comic2 = pygame.image.load(path + 'Comic2.jpg')
 comic3 = pygame.image.load(path + 'Comic3.jpg')
@@ -38,7 +38,7 @@ comic5 = pygame.transform.scale(comic5, (400, 300))
 index = 0
 comicArray = [comic1, comic2, comic3, comic4, comic5]
 
-# Button - with image prop w="362" h="126"
+## Button - with image prop w="362" h="126"
 backButtonImage = pygame.image.load(path + 'py_back.png').convert_alpha()
 nextButtonImage = pygame.image.load(path + 'py_next.png').convert_alpha()
 backButton = py_button.Button(
@@ -54,7 +54,7 @@ nextButton = py_button.Button(
     100/362
 )
 
-# Array Temporary
+## Array Temporary
 expressionFinalData = []
 pageFinalData = []
 temporaryData = []
@@ -102,15 +102,15 @@ def finalLogging(page):
 output = "Neutral"
 runModel = True
 def model():
-  # List emotion index
+  ## List emotion index
   emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
-  # Loading semua training data, storing ke loaded_model_json
+  ## Loading semua training data, storing ke loaded_model_json
   json_file = open('model/emotion_model.json', 'r')
   loaded_model_json = json_file.read()
   json_file.close()
 
-  # Konversi all model to json
+  ## Konversi all model to json
   emotion_model = model_from_json(loaded_model_json)
 
   # Load weights into new model
@@ -208,6 +208,8 @@ while runInterface:
           print('Trigger Next, sekarang halaman', index + 1)
         if index == len(comicArray) -1:
           print(expressionFinalData)
+          runInterval = False
+          runModel = False
 
     screen.blit(
       comicArray[index],
@@ -230,6 +232,5 @@ runInterval = False
 runModel = False
 t1.join()
 t2.join()
-
 
 # -----
