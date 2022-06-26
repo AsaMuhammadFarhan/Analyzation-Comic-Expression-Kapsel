@@ -67,7 +67,7 @@ def finalLogging(page):
   disgusted = temporaryData.count("Disgusted")
   fearful = temporaryData.count("Fearful")
   happy = temporaryData.count("Happy")
-  neutral = temporaryData.count("Neutral")
+  # neutral = temporaryData.count("Neutral")
   sad = temporaryData.count("Sad")
   surprised = temporaryData.count("Surprised")
 
@@ -82,9 +82,9 @@ def finalLogging(page):
   if happy > x:
     x = happy
     summary = "Happy"
-  if neutral > x:
-    x = neutral
-    summary = "Neutral"
+  # if neutral > x:
+  #   x = neutral
+  #   summary = "Neutral"
   if sad > x:
     x = sad
     summary = "Sad"
@@ -177,11 +177,11 @@ t1.start()
 
 runInterval = True
 def interval():
-  global runInterval
+  print('Auto creating log every 0.5 second')
   while runInterval:
-    sleep(1 - time() % 1)
+    sleep(0.5 - time() % 1)
     temporaryLogging(output)
-    print('[ ===== Creating Logs ===== ]')
+    # print('[ ===== Creating Logs ===== ]')
 
 t2 = threading.Thread(target=interval)
 t2.start()
