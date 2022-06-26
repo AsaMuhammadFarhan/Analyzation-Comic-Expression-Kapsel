@@ -94,6 +94,7 @@ def finalLogging(page):
 
   expressionFinalData.append(summary)
   pageFinalData.append(page)
+  temporaryData.clear()
 
 # -----
 
