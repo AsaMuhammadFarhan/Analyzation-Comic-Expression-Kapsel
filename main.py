@@ -179,7 +179,7 @@ runInterval = True
 def interval():
   print('Auto creating log every 0.5 second')
   while runInterval:
-    sleep(0.5 - time() % 1)
+    sleep(1 - time() % 1)
     temporaryLogging(output)
     # print('[ ===== Creating Logs ===== ]')
 
