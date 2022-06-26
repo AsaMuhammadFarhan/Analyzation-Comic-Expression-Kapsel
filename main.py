@@ -99,7 +99,8 @@ def finalLogging(page):
 # -----
 
 # MODEL
-output = ""
+output = "Neutral"
+runModel = True
 def model():
   # List emotion index
   emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
@@ -119,7 +120,8 @@ def model():
   # start the webcam feed
   cap = cv2.VideoCapture(0)
 
-  while True:
+  while runModel:
+      global runModel
       # Find haar cascade to draw bounding box around face
       ret, frame = cap.read()
 
@@ -157,25 +159,26 @@ def model():
           # Tampilin emosi di kotak
           print(emotion_dict[maxindex])
           output = emotion_dict[maxindex]
-          cv2.putText(frame, emotion_dict[maxindex], (x+5, y-20), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
-      # # Show Image Camera, but camera dimatiin
-      # cv2.imshow('Emotion Detection', frame)
       if cv2.waitKey(1) & 0xFF == ord('q'):
           break
+      if runModel == False:
+          break
 
-  #release all resources
+  # Release all resources
   cap.release()
   cv2.destroyAllWindows()
 
 t1 = threading.Thread(target=model)
 t1.start()
+
 # -----
 
 # THREAD INTERVAL
 
 runInterval = True
 def interval():
+  global runInterval
   while runInterval:
     sleep(1 - time() % 1)
     temporaryLogging(output)
@@ -218,9 +221,16 @@ while runInterface:
         if event.type == pygame.QUIT:
             runInterface = False
             runInterval = False
+            runModel = False
 
     pygame.display.update()
 
 pygame.quit()
+runInterface = False
+runInterval = False
+runModel = False
+t1.join()
+t2.join()
+
 
 # -----
