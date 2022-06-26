@@ -1,6 +1,7 @@
 import pygame
 import py_button
 from pyPath import path
+from threading import Timer
 
 # Variabel buat display window
 screenWidth = 800
@@ -40,6 +41,19 @@ nextButton = py_button.Button(
     nextButtonImage,
     100/362
 )
+
+# Try
+run = False
+def test():
+	global run
+	print("something")
+	if run:
+		Timer(1, test).start()
+
+test()
+# now whenever you set run to False the test function won't run anymore
+# and of course if you dont set it to False it will run forever
+# end Try
 
 # Game loop
 run = True
