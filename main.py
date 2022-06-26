@@ -88,8 +88,8 @@ def finalLogging(page):
   if sad > x:
     x = sad
     summary = "Sad"
-  if Surprised > x:
-    x = Surprised
+  if surprised > x:
+    x = surprised
     summary = "Surprised"
 
   expressionFinalData.append(summary)
@@ -121,7 +121,6 @@ def model():
   cap = cv2.VideoCapture(0)
 
   while runModel:
-      global runModel
       # Find haar cascade to draw bounding box around face
       ret, frame = cap.read()
 
@@ -203,11 +202,11 @@ while runInterface:
           print('Trigger Back, sekarang halaman', index + 1)
 
     if nextButton.draw(screen):
-        if index != len(comicArray - 1):
+        if index != len(comicArray) -1:
           finalLogging(index)
           index = index+1
           print('Trigger Next, sekarang halaman', index + 1)
-        if index == len(comicArray - 1):
+        if index == len(comicArray) -1:
           print(expressionFinalData)
 
     screen.blit(
