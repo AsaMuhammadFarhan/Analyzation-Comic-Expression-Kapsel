@@ -199,10 +199,12 @@ while runInterface:
           print('Trigger Back, sekarang halaman', index + 1)
 
     if nextButton.draw(screen):
-        if index != 4:
+        if index != len(comicArray - 1):
           finalLogging(index)
           index = index+1
           print('Trigger Next, sekarang halaman', index + 1)
+        if index == len(comicArray - 1):
+          print(expressionFinalData)
 
     screen.blit(
       comicArray[index],
