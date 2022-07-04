@@ -71,7 +71,7 @@ def finalLogging(page):
   sadCount = temporaryData.count("Sad")
   surprisedCount = temporaryData.count("Surprised")
 
-  print("Count: " + angryCount + " " + disgustedCount + " " + fearfulCount + " " + happyCount + " "+ sadCount + " " + surprisedCount + " "   )
+  print("Count: " + str(angryCount) + " " + str(disgustedCount) + " " + str(fearfulCount) + " " + str(happyCount) + " " + str(sadCount) + " " + str(surprisedCount) + " "   )
 
   summary = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
   indexSummary = 0
