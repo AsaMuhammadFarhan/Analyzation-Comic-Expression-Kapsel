@@ -71,7 +71,7 @@ def finalLogging(page, temporary):
   sadCount = temporary.count("Sad")
   surprisedCount = temporary.count("Surprised")
 
-  console.log("Count: " + angryCount + " " + disgustedCount + " " + fearfulCount + " " + happyCount + " "+ sadCount + " " + surprisedCount + " "   )
+  print("Count: " + angryCount + " " + disgustedCount + " " + fearfulCount + " " + happyCount + " "+ sadCount + " " + surprisedCount + " "   )
 
   summary = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
   indexSummary = 0
@@ -96,7 +96,7 @@ def finalLogging(page, temporary):
     indexSummary = 6
   
   if len(temporaryData) = 0:
-    console.log('Temporary Kosong Tikus')
+    print('Temporary Kosong Tikus')
 
   expressionFinalData.append(summary[indexSummary])
   pageFinalData.append(page)
