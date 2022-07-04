@@ -60,7 +60,12 @@ pageFinalData = []
 temporaryData = []
 
 def temporaryLogging(expression):
+  if expression:
+    print("Ada expression kok: " + expression)
+  if expression == "Neutral":
+    print("Lah kok Neutral")
   temporaryData.append(expression)
+
 
 def finalLogging(page):
   angryCount = temporaryData.count("Angry")
