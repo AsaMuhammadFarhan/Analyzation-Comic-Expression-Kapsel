@@ -97,7 +97,7 @@ def finalLogging(page, temporary):
   
   dataLength = len (temporaryData)
 
-  if dataLength = 0:
+  if dataLength == 0:
     print('Temporary Kosong Tikus')
 
   expressionFinalData.append(summary[indexSummary])
@@ -188,7 +188,7 @@ def interval():
   print('Auto creating log every 1 second')
   while runInterval:
     sleep(1 - time() % 1)
-    temporaryLogging(output)
+    temporaryLogging(output, temporaryData)
     # print('[ ===== Creating Logs ===== ]')
 
 t2 = threading.Thread(target=interval)
