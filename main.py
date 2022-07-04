@@ -62,37 +62,43 @@ temporaryData = []
 def temporaryLogging(expression):
   temporaryData.append(expression)
 
-def finalLogging(page):
-  angry = temporaryData.count("Angry")
-  disgusted = temporaryData.count("Disgusted")
-  fearful = temporaryData.count("Fearful")
-  happy = temporaryData.count("Happy")
-  # neutral = temporaryData.count("Neutral")
-  sad = temporaryData.count("Sad")
-  surprised = temporaryData.count("Surprised")
+def finalLogging(page, temporary):
+  angryCount = temporary.count("Angry")
+  disgustedCount = temporary.count("Disgusted")
+  fearfulCount = temporary.count("Fearful")
+  happyCount = temporary.count("Happy")
+  # neutralCount = temporary.count("Neutral")
+  sadCount = temporary.count("Sad")
+  surprisedCount = temporary.count("Surprised")
 
-  summary = "Angry"
-  x = angry
-  if disgusted > x:
-    x = disgusted
-    summary = "Disgusted"
-  if fearful > x:
-    x = fearful
-    summary = "Fearful"
-  if happy > x:
-    x = happy
-    summary = "Happy"
-  # if neutral > x:
-  #   x = neutral
-  #   summary = "Neutral"
-  if sad > x:
-    x = sad
-    summary = "Sad"
-  if surprised > x:
-    x = surprised
-    summary = "Surprised"
+  console.log("Count: " + angryCount + " " + disgustedCount + " " + fearfulCount + " " + happyCount + " "+ sadCount + " " + surprisedCount + " "   )
 
-  expressionFinalData.append(summary)
+  summary = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
+  indexSummary = 0
+  x = angryCount
+  if disgustedCount > x:
+    x = disgustedCount
+    indexSummary = 1
+  if fearfulCount > x:
+    x = fearfulCount
+    indexSummary = 2
+  if happyCount > x:
+    x = happyCount
+    indexSummary = 3
+  # if neutralCount > x:
+  #   x = neutralCount
+  #   indexSummary = 4
+  if sadCount > x:
+    x = sadCount
+    indexSummary = 5
+  if surprisedCount > x:
+    x = surprisedCount
+    indexSummary = 6
+  
+  if len(temporaryData) = 0:
+    console.log('Temporary Kosong Tikus')
+
+  expressionFinalData.append(summary[indexSummary])
   pageFinalData.append(page)
   temporaryData.clear()
 
