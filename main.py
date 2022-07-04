@@ -95,7 +95,9 @@ def finalLogging(page, temporary):
     x = surprisedCount
     indexSummary = 6
   
-  if len(temporaryData) = 0:
+  dataLength = len (temporaryData)
+
+  if dataLength = 0:
     print('Temporary Kosong Tikus')
 
   expressionFinalData.append(summary[indexSummary])
