@@ -62,14 +62,14 @@ temporaryData = []
 def temporaryLogging(expression):
   temporaryData.append(expression)
 
-def finalLogging(page, temporary):
-  angryCount = temporary.count("Angry")
-  disgustedCount = temporary.count("Disgusted")
-  fearfulCount = temporary.count("Fearful")
-  happyCount = temporary.count("Happy")
-  # neutralCount = temporary.count("Neutral")
-  sadCount = temporary.count("Sad")
-  surprisedCount = temporary.count("Surprised")
+def finalLogging(page):
+  angryCount = temporaryData.count("Angry")
+  disgustedCount = temporaryData.count("Disgusted")
+  fearfulCount = temporaryData.count("Fearful")
+  happyCount = temporaryData.count("Happy")
+  # neutralCount = temporaryData.count("Neutral")
+  sadCount = temporaryData.count("Sad")
+  surprisedCount = temporaryData.count("Surprised")
 
   print("Count: " + angryCount + " " + disgustedCount + " " + fearfulCount + " " + happyCount + " "+ sadCount + " " + surprisedCount + " "   )
 
@@ -188,7 +188,7 @@ def interval():
   print('Auto creating log every 1 second')
   while runInterval:
     sleep(1 - time() % 1)
-    temporaryLogging(output, temporaryData)
+    temporaryLogging(output)
     # print('[ ===== Creating Logs ===== ]')
 
 t2 = threading.Thread(target=interval)
