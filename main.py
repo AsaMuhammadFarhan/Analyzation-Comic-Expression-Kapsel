@@ -134,48 +134,48 @@ def model():
   cap = cv2.VideoCapture(0)
 
   while runModel:
-      # Find haar cascade to draw bounding box around face
-      ret, frame = cap.read()
+    # Find haar cascade to draw bounding box around face
+    ret, frame = cap.read()
 
-      # Preprocesing to resize frame to 1280x720px
-      frame = cv2.resize(frame, (1280, 720))
-      if not ret:
-          break
+    # Preprocesing to resize frame to 1280x720px
+    frame = cv2.resize(frame, (1280, 720))
+    if not ret:
+        break
 
-      # Detect face in video
-      face_detector = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
+    # Detect face in video
+    face_detector = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
 
-      # Converting to grayscale
-      gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # Converting to grayscale
+    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-      # Detect faces available on camera
-      num_faces = face_detector.detectMultiScale(gray_frame, scaleFactor=1.3, minNeighbors=5)
+    # Detect faces available on camera
+    num_faces = face_detector.detectMultiScale(gray_frame, scaleFactor=1.3, minNeighbors=5)
 
-      # Take each face available on the camera and Preprocess it
-      # x dan y adalah start position, w dan h adalah gambar utk membuat kotak
-      for (x, y, w, h) in num_faces:
-          cv2.rectangle(frame, (x, y-50), (x+w, y+h+10), (0, 255, 0), 4)
+    # Take each face available on the camera and Preprocess it
+    # x dan y adalah start position, w dan h adalah gambar utk membuat kotak
+    for (x, y, w, h) in num_faces:
+      cv2.rectangle(frame, (x, y-50), (x+w, y+h+10), (0, 255, 0), 4)
 
-          # Cropping image
-          roi_gray_frame = gray_frame[y:y + h, x:x + w]
+      # Cropping image
+      roi_gray_frame = gray_frame[y:y + h, x:x + w]
 
-          # Preprocessing cropping image sesuai data training
-          cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
+      # Preprocessing cropping image sesuai data training
+      cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
 
-          # Predict the emotions
-          emotion_prediction = emotion_model.predict(cropped_img)
+      # Predict the emotions
+      emotion_prediction = emotion_model.predict(cropped_img)
 
-          # Persentasi max yang didapatkan dr nilai emosi
-          maxindex = int(np.argmax(emotion_prediction)) 
+      # Persentasi max yang didapatkan dr nilai emosi
+      maxindex = int(np.argmax(emotion_prediction)) 
 
-          # Tampilin emosi di kotak
-          print(emotion_dict[maxindex])
-          output = emotion_dict[maxindex]
+      # Tampilin emosi di kotak
+      print(emotion_dict[maxindex])
+      global output = emotion_dict[maxindex]
 
-      if cv2.waitKey(1) & 0xFF == ord('q'):
-          break
-      if runModel == False:
-          break
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+    if runModel == False:
+        break
 
   # Release all resources
   cap.release()
