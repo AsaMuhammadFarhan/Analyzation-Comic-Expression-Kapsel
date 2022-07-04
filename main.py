@@ -112,7 +112,7 @@ def finalLogging(page):
 # -----
 
 # MODEL
-output = "Neutral"
+output = ["Neutral"]
 runModel = True
 def model():
   ## List emotion index
@@ -170,7 +170,7 @@ def model():
 
       # Tampilin emosi di kotak
       print(emotion_dict[maxindex])
-      global output = emotion_dict[maxindex]
+      output.append(emotion_dict[maxindex])
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
@@ -193,7 +193,7 @@ def interval():
   print('Auto creating log every 1 second')
   while runInterval:
     sleep(1 - time() % 1)
-    temporaryLogging(output)
+    temporaryLogging(output[-1])
     # print('[ ===== Creating Logs ===== ]')
 
 t2 = threading.Thread(target=interval)
