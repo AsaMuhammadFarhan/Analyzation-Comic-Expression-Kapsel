@@ -201,6 +201,19 @@ t2.start()
 
 # -----
 
+# OUTPUT
+## Ganti nama orang ketika ganti orang
+personName = "AsaMuhammadFarhan" # Minimalisir penggunaan ada spasi
+fileName = "ExpressionLog.txt"
+def finalResult():
+  f = open(fileName, "a")
+  f.writelines(personName + "'s expression:\n")
+  for x in range(len(pageFinalData)):
+    f.writelines("Hal " + str(pageFinalData[x]) + ": " + expressionFinalData[x] + "\n")
+  f.writelines("\n\n")
+  f.close()
+# -----
+
 # THREAD INTERFACE
 
 runInterface = True
@@ -215,14 +228,11 @@ while runInterface:
           print('Trigger Back, sekarang halaman', index + 1)
 
     if nextButton.draw(screen):
-        if index != len(comicArray) -1:
-          finalLogging(index)
-          index = index+1
-          print('Trigger Next, sekarang halaman', index + 1)
-        if index == len(comicArray) -1:
-          print(expressionFinalData)
-          runInterval = False
-          runModel = False
+        finalLogging(index)
+        index = index+1
+        print('Trigger Next, sekarang halaman', index + 1)
+        if index == len(comicArray) - 1:
+          finalResult()
 
     screen.blit(
       comicArray[index],

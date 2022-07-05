@@ -5,6 +5,7 @@ __pycache__/
 
 # path
 pyPath.py
+ExpressionLog.txt
 
 # C extensions
 *.so
