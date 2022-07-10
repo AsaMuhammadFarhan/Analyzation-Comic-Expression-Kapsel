@@ -19,7 +19,7 @@ from keras.models import model_from_json
 # INTERFACE
 
 ## Variabel buat display window
-screenWidth = 800
+screenWidth = 600
 screenHeight = 500
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 pygame.display.set_caption('Interface from python')
@@ -30,13 +30,23 @@ comic2 = pygame.image.load(path + 'Comic2.jpg')
 comic3 = pygame.image.load(path + 'Comic3.jpg')
 comic4 = pygame.image.load(path + 'Comic4.jpg')
 comic5 = pygame.image.load(path + 'Comic5.jpg')
-comic1 = pygame.transform.scale(comic1, (400, 300))
-comic2 = pygame.transform.scale(comic2, (400, 300))
-comic3 = pygame.transform.scale(comic3, (400, 300))
-comic4 = pygame.transform.scale(comic4, (400, 300))
-comic5 = pygame.transform.scale(comic5, (400, 300))
+comic6 = pygame.image.load(path + 'Comic6.jpg')
+comic7 = pygame.image.load(path + 'Comic7.jpg')
+comic8 = pygame.image.load(path + 'Comic8.jpg')
+comic9 = pygame.image.load(path + 'Comic9.jpg')
+comic10 = pygame.image.load(path + 'Comic10.jpg')
+comic1 = pygame.transform.scale(comic1, (400, 400))
+comic2 = pygame.transform.scale(comic2, (400, 400))
+comic3 = pygame.transform.scale(comic3, (400, 400))
+comic4 = pygame.transform.scale(comic4, (400, 400))
+comic5 = pygame.transform.scale(comic5, (400, 400))
+comic6 = pygame.transform.scale(comic6, (400, 400))
+comic7 = pygame.transform.scale(comic7, (400, 400))
+comic8 = pygame.transform.scale(comic8, (400, 400))
+comic9 = pygame.transform.scale(comic9, (400, 400))
+comic10 = pygame.transform.scale(comic10, (400, 400))
 index = 0
-comicArray = [comic1, comic2, comic3, comic4, comic5]
+comicArray = [comic1, comic2, comic3, comic4, comic5, comic6, comic7, comic8, comic9, comic10]
 
 ## Button - with image prop w="362" h="126"
 backButtonImage = pygame.image.load(path + 'py_back.png').convert_alpha()
@@ -204,7 +214,7 @@ t2.start()
 # OUTPUT
 ## Ganti nama orang ketika ganti orang
 personName = "AsaMuhammadFarhan" # Minimalisir penggunaan ada spasi
-fileName = "ExpressionLog.txt"
+fileName = "ExpressionLogExsys.txt"
 def finalResult():
   f = open(fileName, "a")
   f.writelines(personName + "'s expression:\n")
