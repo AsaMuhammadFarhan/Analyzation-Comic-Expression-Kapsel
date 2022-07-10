@@ -25,7 +25,7 @@ screen = pygame.display.set_mode((screenWidth, screenHeight))
 pygame.display.set_caption('Interface from python')
 
 ## Comic Image
-comic0 = pygame.image.load(path + 'Comic0.jpg')
+comic0 = pygame.image.load(path + 'Comic0.png')
 comic0 = pygame.transform.scale(comic0, (400, 400))
 comic1 = pygame.image.load(path + 'Comic1.jpg')
 comic1 = pygame.transform.scale(comic1, (400, 400))
