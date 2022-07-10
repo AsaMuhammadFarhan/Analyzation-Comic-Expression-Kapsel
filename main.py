@@ -236,13 +236,14 @@ while runInterface:
     if backButton.draw(screen):
         if index != 0:
           finalLogging(index)
-          index = index-1
           print('Trigger Back, sekarang halaman', index + 1)
+          index = index-1
 
     if nextButton.draw(screen):
         finalLogging(index)
-        index = index+1
         print('Trigger Next, sekarang halaman', index + 1)
+        if (index != len(comicArray) - 1):
+          index = index+1
         if index == len(comicArray) - 1:
           finalResult()
 
