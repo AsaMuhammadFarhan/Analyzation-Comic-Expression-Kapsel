@@ -1,0 +1,54 @@
+Nopal expression:
+Hal 0: Happy
+Hal 1: Happy
+Hal 2: Sad
+Hal 3: Sad
+Hal 4: Sad
+Hal 5: Fearful
+Hal 6: Angry
+Hal 7: Sad
+Hal 8: Sad
+Hal 9: Angry
+Hal 10: Sad
+
+
+
+Latif expression:
+Hal 0: Happy
+Hal 1: Happy
+Hal 2: Happy
+Hal 3: Angry
+Hal 4: Sad
+Hal 5: Angry
+Hal 6: Fearful
+Hal 7: Sad
+Hal 8: Sad
+Hal 9: Sad
+Hal 10: Fearful
+
+Uka expression:
+Hal 0: Happy
+Hal 1: Sad
+Hal 2: Sad
+Hal 3: Angry
+Hal 4: Sad
+Hal 5: Happy
+Hal 6: Angry
+Hal 7: Fearful
+Hal 8: Sad
+Hal 9: Sad
+Hal 10: Fearful
+
+Annas expression:
+Hal 0: Happy
+Hal 1: Happy
+Hal 2: Fearful
+Hal 3: Angry
+Hal 4: Sad
+Hal 5: Happy
+Hal 6: Fearful
+Hal 7: Sad
+Hal 8: Sad
+Hal 9: Happy
+Hal 10: Angry
+
