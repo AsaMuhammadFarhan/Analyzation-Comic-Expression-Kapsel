@@ -11,8 +11,6 @@ Hal 8: Sad
 Hal 9: Angry
 Hal 10: Sad
 
-
-
 Latif expression:
 Hal 0: Happy
 Hal 1: Happy
