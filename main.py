@@ -172,6 +172,7 @@ def model():
       print(emotion_dict[maxindex])
       output.append(emotion_dict[maxindex])
 
+    cv2.imshow('Emotion Detection', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     if runModel == False:
